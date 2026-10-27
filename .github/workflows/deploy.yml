@@ -12,29 +12,6 @@ jobs:
       - name: Get latest code
         uses: actions/checkout@v4
 
-      - name: Fetch GitHub Sponsors
-        continue-on-error: true # Don't break the build if sponsors fetch fails
-        run: |
-          mkdir -p docs.zenc-lang.org/static/data
-          # Use a more resilient curl with fallback for the JSON
-          # We'll try to fetch the sponsors and format them as a clean array
-          # If it fails, we write an empty array so Zola doesn't crash
-          JSON_DATA=$(curl -s -H "Authorization: Bearer ${{ secrets.WEBSITE_REPO_TOKEN }}" \
-               -X POST -d '{"query": "query { user(login: \"Zuhaitz-dev\") { sponsorshipsAsMaintainer(first: 100) { nodes { sponsorEntity { ... on User { login avatarUrl url } ... on Organization { login avatarUrl url } } } } } }"}' \
-               https://api.github.com/graphql)
-          
-          # Check if the response contains data and flatten it
-          if echo "$JSON_DATA" | grep -q "sponsorshipsAsMaintainer"; then
-            echo "$JSON_DATA" | jq '[.data.user.sponsorshipsAsMaintainer.nodes[] | .sponsorEntity | select(. != null)]' > docs.zenc-lang.org/static/data/sponsors.json
-          else
-            # Fallback to a default list if fetch fails
-            echo '[{"login": "Zuhaitz-dev", "avatarUrl": "https://github.com/Zuhaitz-dev.png", "url": "https://github.com/Zuhaitz-dev"}]' > docs.zenc-lang.org/static/data/sponsors.json
-            echo "Sponsors fetch failed, using fallback. Response: $JSON_DATA"
-          fi
-          
-          # Copy the JSON to the main website folder to avoid CORS issues
-          cp docs.zenc-lang.org/static/data/sponsors.json zenc/sponsors.json
-
       - name: Generate Playground Examples
         run: |
           python3 scripts/generate_playground_examples.py
