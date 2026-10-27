@@ -88,7 +88,7 @@ jobs:
               sudo mkdir -p /var/www/git
               sudo git init --bare -b main /var/www/git/Zen-C.git
               cd /var/www/git/Zen-C.git
-              git remote add origin https://github.com/zenc-lang/zenc.git
+              git remote add origin https://github.com/zenc-lang-ce/zenc.git
               git fetch origin --prune --tags --force
               sudo chown -R $USER:www-data /var/www/git/Zen-C.git
               sudo chmod -R g+rX /var/www/git/Zen-C.git

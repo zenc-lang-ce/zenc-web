@@ -285,7 +285,7 @@ const regexes = [
     { eng: /<h2 class="sub-title">Modern Ergonomics\.<br>Zero Overhead\.<br>Pure C\.<\/h2>/, key: 'hero.sub', tag: '<h2 class="sub-title">{VAL}</h2>' },
     { eng: /A strictly typed systems language that brings <strong>pattern matching<\/strong>,[\s\n]*<strong>traits<\/strong>, and <strong>ownership semantics<\/strong> to the C ecosystem\./, key: 'hero.lead', tag: '{VAL}' },
 
-    { eng: /<a href="https:\/\/github\.com\/zenc-lang\/zenc" class="btn btn-primary">Get Started<\/a>/, key: 'hero.get_started', tag: '<a href="https://github.com/zenc-lang/zenc" class="btn btn-primary">{VAL}</a>' },
+    { eng: /<a href="https:\/\/github\.com\/zenc-lang-ce\/zenc" class="btn btn-primary">Get Started<\/a>/, key: 'hero.get_started', tag: '<a href="https://github.com/zenc-lang-ce/zenc" class="btn btn-primary">{VAL}</a>' },
     { eng: /<a href="https:\/\/discord\.com\/invite\/q6wEsCmkJP" class="btn btn-secondary">Join Discord<\/a>/, key: 'hero.join_discord', tag: '<a href="https://discord.com/invite/q6wEsCmkJP" class="btn btn-secondary">{VAL}</a>' },
     { eng: /<a href="#newsletter" class="btn btn-secondary">Newsletter &rarr;<\/a>/, key: 'hero.newsletter', tag: '<a href="#newsletter" class="btn btn-secondary">{VAL}</a>' },
     { eng: /<p>Updates on Zen C progress:<\/p>/, key: 'hero.updates', tag: '<p>{VAL}</p>' },

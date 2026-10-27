@@ -317,7 +317,7 @@
     {
         "id": "Hello_world_Newbie",
         "title": "Hello world/Newbie",
-        "code": "git clone https://github.com/zenc-lang/zenc.git\ncd Zen-C\nmake clean # remove old build files\nmake\nsudo make install"
+        "code": "git clone https://github.com/zenc-lang-ce/zenc.git\ncd Zen-C\nmake clean # remove old build files\nmake\nsudo make install"
     },
     {
         "id": "Hello_world_Newline_omission",
