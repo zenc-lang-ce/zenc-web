@@ -44,8 +44,7 @@
                 <div class="nav-links">
                     <a href="https://docs.zenc-lang.org/ru/">Документация</a>
                     <a href="/playground.html">Песочница</a>
-                    <a href="#sponsors">Спонсоры</a>
-                    <a href="https://github.com/zenc-lang/zenc" class="github-link">GitHub ↗</a>
+                    <a href="https://github.com/zenc-lang-ce/zenc" class="github-link">GitHub ↗</a>
                 </div>
 
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
@@ -114,7 +113,7 @@
                 </div>
 
                 <div class="hero-actions">
-                    <a href="https://github.com/zenc-lang/zenc" class="btn btn-primary">Начать</a>
+                    <a href="https://github.com/zenc-lang-ce/zenc" class="btn btn-primary">Начать</a>
                     <a href="https://discord.com/invite/q6wEsCmkJP" class="btn btn-secondary">Discord</a>
                     <a href="#newsletter" class="btn btn-secondary">Новости &rarr;</a>
                 </div>
@@ -538,94 +537,6 @@
 
         </section>
 
-        <section id="sponsors" class="container section-pad">
-            <div class="sponsors-container">
-                <div class="sponsors-intro">
-                    <h2 class="section-title">Поддержка</h2>
-                    <p class="section-desc">
-                        Open Source.
-                    </p>
-                    <a href="https://opencollective.com/z-libs" class="btn btn-primary" target="_blank">
-                        Open Collective &rarr;
-                    </a>
-                </div>
-
-                <div class="tiers-grid">
-                    <div class="tier-card">
-                        <div class="tier-name">Backer</div>
-                        <div class="tier-price">$5<span>/mo</span></div>
-                        <p class="tier-desc">Поддержка.</p>
-                        <ul class="tier-features">
-                            <li>✓ Бейдж</li>
-                            <li>✓ Discord</li>
-                        </ul>
-                    </div>
-                    <div class="tier-card featured">
-                        <div class="tier-name">Sponsor</div>
-                        <div class="tier-price">$100<span>/mo</span></div>
-                        <p class="tier-desc">Особенности.</p>
-                        <ul class="tier-features">
-                            <li>✓ Бонусы Backer</li>
-                            <li>✓ RFC</li>
-                            <li>✓ Лого</li>
-                        </ul>
-                    </div>
-                    <div class="tier-card">
-                        <div class="tier-name">Enterprise</div>
-                        <div class="tier-price">Контакт</div>
-                        <p class="tier-desc">Решения.</p>
-                        <ul class="tier-features">
-                            <li>✓ Приоритет</li>
-                            <li>✓ Лого Home</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="sponsors-gallery">
-                    <h3 class="gallery-title">Спонсоры</h3>
-                    <div id="sponsors-list" class="gallery-flex" style="min-height: 100px;">
-                        <!-- Sponsors will be loaded here via JS -->
-                        <div class="loading-sponsors">Загрузка...</div>
-                    </div>
-                </div>
-
-                <script>
-                    async function loadSponsors() {
-                        try {
-                            const response = await fetch('/sponsors.json');
-                            let sponsors = await response.json();
-                            const list = document.getElementById('sponsors-list');
-
-                            if (!sponsors || sponsors.length === 0) {
-                                sponsors = [{
-                                    login: "Zuhaitz-dev",
-                                    avatarUrl: "https://github.com/Zuhaitz-dev.png",
-                                    url: "https://github.com/Zuhaitz-dev"
-                                }];
-                            }
-
-                            if (sponsors && sponsors.length > 0) {
-                                list.innerHTML = sponsors.map(s => `
-                                    <a href="${s.url}" target="_blank" rel="noopener" class="sponsor-item">
-                                        <img src="${s.avatarUrl}" alt="${s.login}" class="avatar-grid">
-                                        <span class="sponsor-name">${s.login}</span>
-                                    </a>
-                                `).join('');
-                            }
-                        } catch (e) {
-                            console.error('Failed to load sponsors:', e);
-                            document.getElementById('sponsors-list').innerHTML = `
-                                <a href="https://github.com/Zuhaitz-dev" target="_blank" rel="noopener">
-                                    <img src="https://github.com/Zuhaitz-dev.png" alt="Zuhaitz-dev" title="Zuhaitz-dev" class="avatar-grid" style="width: 50px; border-radius: 50%;">
-                                </a>
-                            `;
-                        }
-                    }
-                    loadSponsors();
-                </script>
-            </div>
-        </section>
-
         <section id="newsletter" class="newsletter-section">
             <div class="container">
                 <div class="newsletter-content">
@@ -661,7 +572,6 @@
                     <a href="#interop">Взаимодействие</a>
                     <a href="#roadmap">План</a>
                     <a href="#newsletter">Новости</a>
-                    <a href="https://opencollective.com/z-libs">Спонсоры</a>
                 </div>
             </div>
             <div class="footer-col">
