@@ -632,7 +632,7 @@
             <a href="/" class="logo">Zen C <span class="version">v0.4.4</span></a>
             <nav>
                 <div class="nav-links">
-                    <a href="https://docs.zenc-lang.org/">Docs</a>
+                    <a href="/docs/">Docs</a>
                     <a href="/playground.html" class="active">Playground</a>
                     <a href="https://github.com/zenc-lang-ce/zenc" class="github-link">GitHub ↗</a>
                 </div>
@@ -986,6 +986,10 @@
                 if (oldCode) project.files["main.zc"] = oldCode;
             }
 
+            // Running code and the LSP diagnostics need the playground API server
+            // (playground-api/), which the GitHub Pages site does not have.
+            const PLAYGROUND_API_AVAILABLE = false;
+
             // --- 1. CORE UI SELECTION ---
             const examplesSelect = document.getElementById('examples-select');
             const fileList = document.getElementById('file-list');
@@ -993,6 +997,7 @@
             const cursorPos = document.getElementById('cursor-pos');
             const fileStats = document.getElementById('file-stats');
             const runBtn = document.getElementById('run-btn');
+            if (!PLAYGROUND_API_AVAILABLE) runBtn.style.display = 'none';
 
             // --- 2. MAIN EDITOR INITIALIZATION ---
             const editor = monaco.editor.create(document.getElementById('editor-container'), {
@@ -1014,7 +1019,7 @@
             editor.onDidChangeCursorPosition((e) => {
                 cursorPos.textContent = `Ln ${e.position.lineNumber}, Col ${e.position.column}`;
             });
-            editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => runBtn.click());
+            if (PLAYGROUND_API_AVAILABLE) editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => runBtn.click());
 
             // --- 3. WORKSPACE LOGIC ---
             function saveProject() {
@@ -1334,7 +1339,7 @@
             });
 
             try {
-                connectLSP();
+                if (PLAYGROUND_API_AVAILABLE) connectLSP();
                 if (window.Terminal) {
                     const terminal = new Terminal({ cursorBlink: true, fontSize: 13, fontFamily: 'JetBrains Mono, monospace', theme: { background: '#00000000', foreground: '#e2e8f0' }, allowTransparency: true, convertEol: true });
                     const fitAddon = new FitAddon.FitAddon(); terminal.loadAddon(fitAddon);
@@ -1349,7 +1354,7 @@
                     window.addEventListener('resize', () => fitAddon.fit());
                     setTimeout(() => fitAddon.fit(), 100);
 
-                    const drawHeader = () => { terminal.clear(); terminal.writeln("\x1b[32m>\x1b[0m \x1b[1mZen C Playground\x1b[0m"); terminal.writeln("\x1b[90mPress Run to compile and execute.\x1b[0m\r\n"); };
+                    const drawHeader = () => { terminal.clear(); terminal.writeln("\x1b[32m>\x1b[0m \x1b[1mZen C Playground\x1b[0m"); terminal.writeln(PLAYGROUND_API_AVAILABLE ? "\x1b[90mPress Run to compile and execute.\x1b[0m\r\n" : "\x1b[90mRunning code is not available on this site yet.\x1b[0m\r\n"); };
                     drawHeader();
                     document.getElementById('clear-terminal').onclick = drawHeader;
 

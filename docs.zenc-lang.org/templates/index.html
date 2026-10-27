@@ -346,7 +346,7 @@
 <div class="docs-index">
     <!-- Header -->
     <div class="docs-index-header">
-        <h1>docs.zenc-lang.org</h1>
+        <h1>{{ config.title }}</h1>
         <p class="docs-hero-desc">{{ trans(key="docs-tagline", lang=lang) }}</p>
     </div>
 
@@ -448,7 +448,7 @@
             {% endfor %}
             {% endif %}
             {% if not is_namespace %}
-            <a href="{{ page.permalink | replace(from=config.base_url, to='') | safe }}" class="import-row">
+            <a href="{{ page.permalink | safe }}" class="import-row">
                 <span class="kw">import</span> <span class="str">"{{ page.title }}.zc"</span>;
             </a>
             {% endif %}
@@ -462,7 +462,7 @@
         var pool = [
             {% set rosetta = get_section(path = "examples/rosetta/_index.md", lang = lang) %}
         {% for page in rosetta.pages %}
-    { url: "{{ page.permalink | replace(from=config.base_url, to='') | safe }}", title: "{{ page.title | safe }}" },
+    { url: "{{ page.permalink | safe }}", title: "{{ page.title | safe }}" },
     {% endfor %}
     ];
 

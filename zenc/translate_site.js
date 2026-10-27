@@ -274,7 +274,7 @@ const locales = {
 const regexes = [
     { eng: /<title>Zen C - Modern Ergonomics\. Pure C\.<\/title>/, key: 'title', tag: '<title>{VAL}</title>' },
     { eng: /content="A modern systems programming language that compiles to human-readable C11 with zero overhead\."/, key: 'desc', tag: 'content="{VAL}"' },
-    { eng: /<a href="https:\/\/docs\.zenc-lang\.org\/">Docs<\/a>/g, key: 'nav.docs', tag: '<a href="https://docs.zenc-lang.org/">{VAL}</a>' },
+    { eng: /<a href="\/docs\/">Docs<\/a>/g, key: 'nav.docs', tag: '<a href="/docs/">{VAL}</a>' },
     { eng: /<a href="\/playground\.html">Playground<\/a>/g, key: 'nav.playground', tag: '<a href="/playground.html">{VAL}</a>' },
     { eng: /<a href="https:\/\/git\.zenc-lang\.org\/">Mirror<\/a>/g, key: 'nav.mirror', tag: '<a href="https://git.zenc-lang.org/">{VAL}</a>' },
     { eng: /<a href="#interop">Interop<\/a>/g, key: 'nav.interop', tag: '<a href="#interop">{VAL}</a>' },
@@ -318,8 +318,8 @@ const regexes = [
     { eng: /<h4>Project<\/h4>/, key: 'footer.project', tag: '<h4>{VAL}</h4>' },
     { eng: /<h4>Newsletter<\/h4>/, key: 'footer.news_title', tag: '<h4>{VAL}</h4>' },
     { eng: /<p style="[^"]*">Join the mailing list for[\s\n]*updates\.<\/p>/, key: 'footer.news_desc', tag: '<p style="margin-bottom: 1rem; font-size: 0.85rem; color: var(--muted);">{VAL}</p>' },
-    { eng: /<a href="https:\/\/docs\.zenc-lang\.org">Documentation<\/a>/g, key: 'nav.docs', tag: '<a href="https://docs.zenc-lang.org">{VAL}</a>' },
-    { eng: /<a href="https:\/\/git\.zenc-lang\.org">Source Code<\/a>/g, key: 'nav.mirror', tag: '<a href="https://git.zenc-lang.org">{VAL}</a>' },
+    { eng: /<a href="\/docs\/">Documentation<\/a>/g, key: 'nav.docs', tag: '<a href="/docs/">{VAL}</a>' },
+    { eng: /<a href="https:\/\/github\.com\/zenc-lang-ce\/zenc">Source Code<\/a>/g, key: 'nav.mirror', tag: '<a href="https://github.com/zenc-lang-ce/zenc">{VAL}</a>' },
 
     // Videos
     { eng: /<h2 class="section-title">Community Videos<\/h2>/, key: 'videos.title', tag: '<h2 class="section-title">{VAL}</h2>' },
@@ -410,10 +410,7 @@ for (const lang of Object.keys(locales)) {
 
     // Correct link paths to docs localized
     if (lang !== 'en') {
-        outHtml = outHtml.replace(/"https:\/\/docs\.zenc-lang\.org\/?([^"]*)"/g, (match, p1) => {
-            const cleanPath = p1.startsWith('/') ? p1.slice(1) : p1;
-            return `"https://docs.zenc-lang.org/${lang}/${cleanPath}"`;
-        });
+        outHtml = outHtml.replace(/"\/docs\/([^"]*)"/g, (match, p1) => `"/docs/${lang}/${p1}"`);
     }
 
     const dirInfo = path.join(__dirname, lang);
