@@ -42,7 +42,7 @@
             <a href="/" class="logo">Zen C <span class="version">v0.4.4</span></a>
             <nav>
                 <div class="nav-links">
-                    <a href="https://docs.zenc-lang.org/">Docs</a>
+                    <a href="/docs/">Docs</a>
                     <a href="/playground.html">Playground</a>
                     <a href="https://github.com/zenc-lang-ce/zenc" class="github-link">GitHub ↗</a>
                 </div>
@@ -105,9 +105,9 @@
 
                 <div class="cmd-line-wrapper">
                     <div class="cmd-line-inner clickable-copy"
-                        onclick="copyCode(this, 'git clone https://git.zenc-lang.org/Zen-C.git')">
+                        onclick="copyCode(this, 'git clone https://github.com/zenc-lang-ce/zenc.git')">
                         <div class="cmd-line" id="install-cmd">
-                            <span class="prompt">$</span> git clone https://git.zenc-lang.org/Zen-C.git
+                            <span class="prompt">$</span> git clone https://github.com/zenc-lang-ce/zenc.git
                         </div>
                         <div class="terminal-icon"><i class="fa-regular fa-copy"></i></div>
                     </div>
@@ -211,8 +211,8 @@
                 <div class="step">
                     <span class="step-label">CLONE</span>
                     <div class="step-content clickable-copy"
-                        onclick="copyCode(this, 'git clone https://git.zenc-lang.org/Zen-C.git')">
-                        <code>git clone https://git.zenc-lang.org/Zen-C.git</code>
+                        onclick="copyCode(this, 'git clone https://github.com/zenc-lang-ce/zenc.git')">
+                        <code>git clone https://github.com/zenc-lang-ce/zenc.git</code>
                         <i class="fa-regular fa-copy" style="opacity: 0.3; font-size: 0.8rem;"></i>
                     </div>
                 </div>
@@ -574,8 +574,8 @@
             <div class="footer-col">
                 <h4>Project</h4>
                 <div class="footer-links">
-                    <a href="https://docs.zenc-lang.org">Documentation</a>
-                    <a href="https://git.zenc-lang.org">Source Code</a>
+                    <a href="/docs/">Documentation</a>
+                    <a href="https://github.com/zenc-lang-ce/zenc">Source Code</a>
                     <a href="#interop">Interop</a>
                     <a href="#roadmap">Roadmap</a>
                     <a href="#newsletter">Newsletter</a>
@@ -667,8 +667,7 @@
 
                 htmlElement.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
-                // Set cookie on the naked domain to share with subdomains
-                document.cookie = `theme=${newTheme}; Domain=.zenc-lang.org; Path=/; Max-Age=31536000; SameSite=Lax`;
+                document.cookie = `theme=${newTheme}; Path=/; Max-Age=31536000; SameSite=Lax`;
             });
         }
     </script>

@@ -1,5 +1,5 @@
 # THE ZEN C DOCUMENTATION CONFIG
-base_url = "https://docs.zenc-lang.org"
+base_url = "https://zenc-lang-ce.github.io/zenc-web/docs"
 build_search_index = true
 default_language = "en"
 title = "Zen C Documentation"
