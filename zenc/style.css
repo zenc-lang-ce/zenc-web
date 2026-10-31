@@ -1,16 +1,16 @@
 :root {
     color-scheme: light dark;
     /* "Zen Garden" Light Palette (Default) */
-    --bg: #fdfdfc;
+    /* Palette from the logo: teal #368275, green #9fd484, cream #f4f8df */
+    --bg: #fbfdf8;
     --surface: #ffffff;
-    --surface-alt: #f1f5f9;
-    --fg: #1a1a19;
-    --muted: #64748b;
-    --border: rgba(0, 0, 0, 0.08);
-    --primary: #1a1a19;
-    --accent: #15803d;
-    --header-bg: rgba(253, 253, 252, 0.85);
-    /* Zen Green */
+    --surface-alt: #f2f7ee;
+    --fg: #1f2e2a;
+    --muted: #5a6e68;
+    --border: rgba(54, 130, 117, 0.14);
+    --primary: #173f38;
+    --accent: #368275;
+    --header-bg: rgba(251, 253, 248, 0.85);
 
     /* Syntax Highlighting - Light Theme */
     --kwd: #c2410c;
@@ -25,15 +25,15 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #0c0c0b;
-        --surface: #161615;
-        --surface-alt: #1c1c1b;
-        --fg: #e2e8f0;
-        --muted: #94a3b8;
-        --border: rgba(255, 255, 255, 0.08);
-        --primary: #f8fafc;
-        --accent: #4ade80;
-        --header-bg: rgba(12, 12, 11, 0.85);
+        --bg: #0e1615;
+        --surface: #121e1c;
+        --surface-alt: #182825;
+        --fg: #e2ede7;
+        --muted: #9bb3ab;
+        --border: rgba(159, 212, 132, 0.12);
+        --primary: #f4f8df;
+        --accent: #9fd484;
+        --header-bg: rgba(14, 22, 21, 0.85);
 
         /* Syntax Highlighting - Dark Theme */
         --kwd: #f97316;
@@ -48,15 +48,15 @@
 }
 
 [data-theme="dark"] {
-    --bg: #0c0c0b;
-    --surface: #161615;
-    --surface-alt: #1c1c1b;
-    --fg: #e2e8f0;
-    --muted: #94a3b8;
-    --border: rgba(255, 255, 255, 0.08);
-    --primary: #f8fafc;
-    --accent: #4ade80;
-    --header-bg: rgba(12, 12, 11, 0.85);
+    --bg: #0e1615;
+    --surface: #121e1c;
+    --surface-alt: #182825;
+    --fg: #e2ede7;
+    --muted: #9bb3ab;
+    --border: rgba(159, 212, 132, 0.12);
+    --primary: #f4f8df;
+    --accent: #9fd484;
+    --header-bg: rgba(14, 22, 21, 0.85);
 
     /* Syntax Highlighting - Dark Theme */
     --kwd: #f97316;
@@ -70,13 +70,15 @@
 }
 
 [data-theme="light"] {
-    --bg: #fdfdfc;
+    --bg: #fbfdf8;
     --surface: #ffffff;
-    --fg: #1a1a19;
-    --muted: #6b7280;
-    --border: rgba(0, 0, 0, 0.06);
-    --primary: #1a1a19;
-    --header-bg: rgba(253, 253, 252, 0.85);
+    --surface-alt: #f2f7ee;
+    --fg: #1f2e2a;
+    --muted: #5a6e68;
+    --border: rgba(54, 130, 117, 0.14);
+    --primary: #173f38;
+    --accent: #368275;
+    --header-bg: rgba(251, 253, 248, 0.85);
 
     /* Syntax Highlighting - Light Theme */
     --kwd: #c2410c;

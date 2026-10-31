@@ -25,15 +25,17 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
         rel="stylesheet">
     <style>
+        /* Palette from the logo: teal #368275, green #9fd484, cream #f4f8df */
         :root {
-            --bg: #ffffff;
-            --fg: #1e293b;
+            --bg: #fbfdf8;
+            --fg: #1f2e2a;
             --surface: #ffffff;
-            --surface-alt: #f8fafc;
-            --border: #e2e8f0;
-            --muted: #64748b;
-            --primary: #000000;
-            --secondary: #475569;
+            --surface-alt: #f2f7ee;
+            --border: #dce8d8;
+            --muted: #5a6e68;
+            --primary: #173f38;
+            --secondary: #3d6a61;
+            --accent: #368275;
             --kwd: #d946ef;
             --fn: #0ea5e9;
             --typ: #f59e0b;
@@ -41,14 +43,15 @@
         }
 
         [data-theme="dark"] {
-            --bg: #0c0c0b;
-            --fg: #e2e8f0;
-            --surface: #121211;
-            --surface-alt: #1c1c1b;
-            --border: #2d2d2a;
-            --muted: #94a3b8;
-            --primary: #ffffff;
-            --secondary: #cbd5e1;
+            --bg: #0e1615;
+            --fg: #e2ede7;
+            --surface: #121e1c;
+            --surface-alt: #182825;
+            --border: #243834;
+            --muted: #9bb3ab;
+            --primary: #f4f8df;
+            --secondary: #c3d8cf;
+            --accent: #9fd484;
             --kwd: #f472b6;
             --fn: #38bdf8;
             --typ: #fbbf24;
@@ -427,8 +430,8 @@
         .sidebar-link.active {
             color: var(--primary);
             font-weight: 600;
-            border-left-color: var(--kwd);
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.04), transparent);
+            border-left-color: var(--accent);
+            background: linear-gradient(90deg, rgba(54, 130, 117, 0.08), transparent);
         }
 
         /* MAIN CONTENT area */
@@ -458,8 +461,8 @@
             margin-top: 3.5rem;
             margin-bottom: 1.5rem;
             padding: 0.75rem 1rem;
-            background: #fcfaf6;
-            border-left: 4px solid var(--muted);
+            background: #f0f6ea;
+            border-left: 4px solid var(--accent);
             border-radius: 0 8px 8px 0;
             color: var(--primary);
             font-weight: 800;
@@ -520,15 +523,15 @@
             margin-bottom: 2.5rem;
             overflow-x: auto;
             position: relative;
-            border: 1px solid #e2e8f0;
-            border-left: 4px solid #cbd5e1;
-            background-color: #fdfbf7;
+            border: 1px solid var(--border);
+            border-left: 4px solid #b5d6a7;
+            background-color: #f8fbf2;
             background-image:
                 repeating-linear-gradient(45deg,
                     transparent,
                     transparent 10px,
-                    rgba(180, 170, 150, 0.08) 10px,
-                    rgba(180, 170, 150, 0.08) 11px);
+                    rgba(54, 130, 117, 0.06) 10px,
+                    rgba(54, 130, 117, 0.06) 11px);
             box-shadow: none;
         }
 
@@ -595,7 +598,7 @@
         /* Global Link Styling — Zen Palette */
         .doc-content a,
         .admonition-content .z-link {
-            color: var(--fn);
+            color: var(--accent);
             text-decoration: none;
             transition: all 0.2s;
         }
@@ -911,8 +914,8 @@
         }
 
         [data-theme="dark"] .doc-content h3 {
-            background: #1a1916;
-            border-left-color: #475569;
+            background: #16231f;
+            border-left-color: var(--accent);
         }
 
         [data-theme="dark"] .doc-content code {
@@ -920,9 +923,9 @@
         }
 
         [data-theme="dark"] .doc-content pre {
-            background-color: #121211;
-            border-color: #2d2d2a;
-            border-left-color: #475569;
+            background-color: #111b19;
+            border-color: #243834;
+            border-left-color: #3f7a6c;
             background-image:
                 repeating-linear-gradient(45deg,
                     transparent,
@@ -988,19 +991,19 @@
             margin: 2rem 0;
             padding: 1.5rem 1.75rem;
             border-radius: 8px;
-            border: 1px solid #d5cec0;
+            border: 1px solid #cfe2c8;
             border-left: none;
             position: relative;
             overflow: hidden;
             /* Sand base */
-            background-color: #f5f0e8;
+            background-color: #eef6e8;
             /* Raked sand lines */
             background-image:
                 repeating-linear-gradient(0deg,
                     transparent,
                     transparent 7px,
-                    rgba(180, 170, 150, 0.18) 7px,
-                    rgba(180, 170, 150, 0.18) 8px);
+                    rgba(54, 130, 117, 0.12) 7px,
+                    rgba(54, 130, 117, 0.12) 8px);
         }
 
         /* The stone — a smooth pebble in the corner */
@@ -1012,7 +1015,7 @@
             width: 28px;
             height: 28px;
             border-radius: 50% 50% 50% 42%;
-            background: radial-gradient(ellipse at 35% 35%, #c9c0b0, #a89f8f);
+            background: radial-gradient(ellipse at 35% 35%, #b9d9a9, #7fae8f);
             opacity: 0.5;
             box-shadow:
                 1px 2px 4px rgba(0, 0, 0, 0.08),
@@ -1030,7 +1033,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: #8b7e6a;
+            color: #4f7d70;
             border: none;
             background: none;
             position: relative;
@@ -1046,13 +1049,13 @@
             padding: 0;
             font-size: 0.9rem;
             line-height: 1.7;
-            color: #3d3628;
+            color: #2c3f3a;
             position: relative;
             z-index: 1;
         }
 
         .admonition-content p {
-            color: #3d3628;
+            color: #2c3f3a;
         }
 
         .admonition-content p:last-child {
@@ -1121,14 +1124,14 @@
 
         /* ── Dark Mode: Night Garden ── */
         [data-theme="dark"] .admonition {
-            background-color: #1a1916;
-            border-color: #2d2a24;
+            background-color: #16231f;
+            border-color: #243834;
             background-image:
                 repeating-linear-gradient(0deg,
                     transparent,
                     transparent 7px,
-                    rgba(120, 110, 90, 0.1) 7px,
-                    rgba(120, 110, 90, 0.1) 8px);
+                    rgba(80, 140, 120, 0.1) 7px,
+                    rgba(80, 140, 120, 0.1) 8px);
         }
 
         [data-theme="dark"] .admonition::before,
@@ -1143,16 +1146,16 @@
         }
 
         [data-theme="dark"] .admonition-title {
-            color: #a89f8f;
+            color: #8fb8a8;
         }
 
         [data-theme="dark"] .admonition-content,
         [data-theme="dark"] .admonition-content p {
-            color: #d5cec0;
+            color: #cfe0d8;
         }
 
         [data-theme="dark"] .admonition-content strong {
-            color: #f0ece4;
+            color: #f4f8df;
         }
 
         [data-theme="dark"] .admonition-content code {
